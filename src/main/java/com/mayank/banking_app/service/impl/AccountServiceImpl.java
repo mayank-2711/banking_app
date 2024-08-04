@@ -67,7 +67,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AccountDto> bulkUploadAccounts(List<AccountDto> accountDtos) {
-        System.out.println(accountDtos);
         return accountDtos.stream().map(this::createAccount).collect(Collectors.toList());
+    }
+
+    @Override
+    public void bulkDeleteAccounts(List<Long> ids) {
+        accountRepository.deleteAllById(ids);
     }
 }

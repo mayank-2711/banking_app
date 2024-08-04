@@ -19,4 +19,6 @@ public interface AccountService {
 
     List<AccountDto> bulkUploadAccounts(List<AccountDto> accountDtos);
 
+    void bulkDeleteAccounts(List<Long> ids);
+
 }

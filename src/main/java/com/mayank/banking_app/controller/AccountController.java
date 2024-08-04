@@ -67,4 +67,12 @@ public class AccountController {
         List<AccountDto> accounts = accountService.bulkUploadAccounts(accountDtos);
         return new ResponseEntity<>(accounts, HttpStatus.CREATED);
     }
+
+    // Bulk Delete User REST API
+    @DeleteMapping("/bulk-delete")
+    public  ResponseEntity<String> bulkDeleteAccounts(@RequestBody Map<String, List<Long>> request){
+        List<Long> ids = request.get("ids");
+        accountService.bulkDeleteAccounts(ids);
+        return ResponseEntity.ok("Given IDs Deleted Successfully");
+    }
 }
